@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+
+int chi(int i , int rt , int n){ // rt means sqrt(n)
+   if(n < 2) return 0;
+   if(i > rt) return 1;
+   if(n%i == 0) return 0;
+   return chi(i+1 , rt , n);
+}
+/* calling chi()
+   chi(2 , (int)sqrt(n) , n);
+*/
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>isPrime_iterative</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

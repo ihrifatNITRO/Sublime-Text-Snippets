@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+// euler's totient function to count the numbers of co-prime of a number
+ll phi(ll n){ 
+    ll result = n; // Initialize result as n 
+    /* Consider all prime factors of n and subtract their 
+    multiples from result */
+    for (ll i = 2; i*i <= n; i++) { 
+        // Check if p is a prime factor. 
+        if (n % i == 0) { 
+            // If yes, then update n and result 
+            while (n % i == 0) 
+                n /= i; 
+            result -= result / i; 
+        } 
+    } 
+    /* If n has a prime factor greater than sqrt(n), there can be at-most one such prime factor */ 
+    if (n > 1){
+        result -= result / n; 
+    }
+    return result; 
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Co_prime</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

@@ -1,0 +1,48 @@
+<snippet>
+	<content><![CDATA[
+// normal seive to generate primes
+vector<ll>prime;
+void sieve(ll n , vector<ll>& v){
+    bool a[n+1];  memset(a, 0, sizeof(a));
+    v.push_back(2);
+    for(ll i=3; i<=n; i+=2){
+       if(a[i] == 0){
+         v.push_back(i);
+         for(ll j=i*i; j<=n; j+=i*2){
+            a[j] = 1;
+         }
+      }
+   }
+}
+// to get all the primes from one number to another
+void segSieve(ll l, ll h){
+    ll n = floor(sqrt(h)) + 1;
+    vector <ll> v;
+    // calling normal seive to store primes
+    sieve(n , v);
+    ll m = h - l + 1;
+    bool b[m+1];
+    memset(b, 0, sizeof(b));
+    for(ll i=0; i<v.size(); i++){
+       ll base = v[i] * v[i];
+       if(base < l){
+         base = ((l + v[i] - 1)/v[i]) * v[i];
+       }
+       for(ll j=base; j<= h; j+=v[i]){
+            b[j - l] = 1;
+       }
+    }
+    for(ll i=l; i<=h; i++){
+      if(b[i - l] == 0){
+         if(i != 1){
+            prime.pb(i);
+         }
+      }
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Seg_seive</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

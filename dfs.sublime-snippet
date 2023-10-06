@@ -1,0 +1,39 @@
+<snippet>
+	<content><![CDATA[
+// making Mx as maximum number of nodes
+// declaring a vector of array(ad. list) to store the graph
+// declaring an array of bool data-type 
+#define Mx 10000007
+std::vector<ll>g[Mx];
+bool vis[Mx];
+// calling dfs from source node
+void DFS(ll source){
+   vis[source] = 1;
+   for(ll i=0;i<g[source].size();i++){
+      ll next = g[source][i];
+      if(vis[next] == 1){ continue; }
+      if(vis[next] == 0){
+         DFS(next);
+      }
+   }
+}
+
+// taking inputs for unweighted graph in {int main()}
+/* 
+   ll node , edge;
+   scanf("%lld %lld",&node,&edge);
+   for(ll i=0;i<edge;i++){
+      ll u,v;
+      scanf("%lld %lld",&u,&v);
+      g[u].pb(v);
+      g[v].pb(u);
+   }
+
+   DFS(1);
+*/
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dfs</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

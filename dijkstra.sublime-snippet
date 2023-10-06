@@ -1,0 +1,51 @@
+<snippet>
+	<content><![CDATA[
+#define mx 100050
+vector<int>g[mx] , cost[mx];
+int dis[mx];
+
+void Dijkstra(int source){
+   // assigning every value of dis[] to INF
+   fill(dis , dis+mx , 1e9);
+   // assigning distance of source to 0
+   dis[source] = 0;
+   // declaring priority queue with a pair of cost and node
+   priority_queue<pair<int , int>>q;
+   // pushing source and is dis to priority_queue
+   // here dis will be (-), because we are using priority_queue
+   q.push(make_pair(-0 , source));
+   
+   while(!q.empty()){
+      int u = q.top().second; // node
+      q.pop();
+      for(int i=0;i<g[u].size();i++){
+         int c = cost[u][i];
+         int v = g[u][i];
+         if(dis[v] > dis[u] + c){
+            dis[v] = dis[u] + c;
+            q.push(make_pair(-dis[v] , v));
+         }
+      }
+   }
+}
+
+/* input for Dijkstra
+   int node,edge;
+   scii(node , edge);
+
+   for(int i=0;i<edge;i++){
+      int u,v,w;
+      sciii(u,v,w);
+      g[u].pb(v);
+      g[v].pb(u);
+      cost[u].pb(w);
+      cost[v].pb(w);
+   }
+*/
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dijkstra</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

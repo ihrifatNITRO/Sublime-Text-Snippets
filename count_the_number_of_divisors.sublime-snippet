@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+// count number of divisors of a number using prime factorization
+// first call Seg_seive function
+// second call Primefactors function
+// then call the Cnt_divisors function
+ll cnt_divisors(){
+   set<ll>s;
+   for(auto i : prime_facts){
+      s.insert(i);
+   }
+   ll cnt=1;
+   for(auto i : s){
+      cnt *= 1 + count(prime_facts.begin() , prime_facts.end() , i);
+   }
+   return cnt;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Cnt_div</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

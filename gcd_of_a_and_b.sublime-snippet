@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+// gcd of two number
+ll gcd(ll mx , ll mn){
+   ll t;
+   while(mn != 0){
+      t = mx % mn;
+      mx = mn;
+      mn = t;
+   }
+   return mx;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>gcd</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

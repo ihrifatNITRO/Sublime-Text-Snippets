@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+ll fibo(ll n , ll dp[]){
+   if(n == 1 || n == 2){
+      return 1;
+   }
+
+   if(dp[n] != 0){
+      return dp[n];
+   }
+   else{
+      dp[n] = fibo(n-1 , dp) + fibo(n-2 , dp);
+      return dp[n];
+   }
+}
+/*
+   ll dp[n+1];
+   memset(dp , 0 , sizeof(dp));
+
+   dp[1] = 1;
+   dp[2] = 1;
+*/
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>fibonacci_recursive</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

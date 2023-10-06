@@ -1,0 +1,50 @@
+<snippet>
+	<content><![CDATA[
+// declaring Mx as maximum number of nodes
+// declaring a vector of array(ad. list) to store the graph
+// declaring an array of bool data-type 
+// declaring an array for store the distances of nodes
+#define Mx 10000007
+std::vector<ll>g[Mx];
+bool vis[Mx];
+ll dis[Mx];
+// calling bfs from source node
+void BFS(ll source){
+   queue<ll>q;
+   vis[source] = 1;
+   dis[source] = 0;
+   q.push(source);
+
+   while(!q.empty()){
+      ll x = q.front();
+      q.pop();
+      for(ll i=0;i<g[x].size();i++){
+         ll next = g[x][i];
+         if(!vis[next]){
+            vis[next] = 1;
+            dis[next] = dis[x] + 1;
+            q.push(next);
+         }
+      }
+   }
+}
+
+// taking inputs for unweighted graph in {int main()}
+/* 
+   ll node , edge;
+   scanf("%lld %lld",&node,&edge);
+   for(ll i=0;i<edge;i++){
+      ll u,v;
+      scanf("%lld %lld",&u,&v);
+      g[u].pb(v);
+      g[v].pb(u);
+   }
+
+   BFS(1);
+*/
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bfs</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

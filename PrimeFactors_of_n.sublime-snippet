@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+// prime factors of a number
+// first call segSeive() to store all primes
+// then use prime_divisors function to get all the prime factors of a
+std::vector<ll>prime_facts;
+void prime_factors(ll a){
+   for(ll i=0;i<prime.size();i++){
+      while(a%prime[i] == 0){
+         a /= prime[i];
+         prime_facts.pb(prime[i]);
+      }
+      if(a == 1){break;}
+   }
+   if(a != 1){prime_facts.pb(a);}
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>PrimeFactors</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

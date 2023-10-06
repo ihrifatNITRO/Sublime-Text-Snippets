@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+// divisors of a number
+std::vector<ll> fact;
+void Divisors_of_n(ll n){
+   for(ll i=1; i*i <= n; i++){
+      if(n%i == 0){
+         fact.push_back(i);
+         if(i != n/i){
+            fact.push_back(n/i);
+         }
+      }
+   }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>divisor</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

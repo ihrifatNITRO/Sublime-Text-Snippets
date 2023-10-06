@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+
+string facto(ll n){
+   if(n == 0 || n == 1){
+      return "1";
+   }
+
+   long double sum = 0;
+   for(ll i=1;i<=n;i++){
+      sum = sum + log(i);
+   }
+
+   string si = to_string(round(exp(sum)));
+   int cnt=0;
+   while(cnt != 7){
+      si.pop_back();
+      cnt++;
+   }
+   return si;
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>factorial_large</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
